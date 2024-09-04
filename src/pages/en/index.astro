@@ -1,0 +1,296 @@
+---
+import Header from "../../components/Header.astro";
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Layout title="Home">
+  <main class="w-full h-[100vh]">
+    <div
+      class="text-blue-900 text-xs font-semibold flex justify-end pr-60 p-8 gap-2 border-b border-gray-300"
+    >
+      <a href="#main-content"> Main Content </a>
+      |
+      <div>
+        <select id="language-select">
+          <option value="./en">English</option>
+          <option value="./hi">Hindi</option>
+          <option value="./gu">Gujrati</option>
+          <option value="./ma">Marathi</option>
+        </select>
+      </div>
+    </div>
+    <Header />
+    <Image src="/hero.jpg" alt="UIDAI Logo" width="1700" height="500" />
+    <div id="main-content" class="container p-4 px-40">
+      <div class="flex flex-col md:flex-row">
+        <!-- Left Column -->
+        <div class="md:w-2/3 md:pr-4">
+          <!-- Top Message -->
+          <div class="bg-white p-4 rounded shadow mb-4 border-t-4 border-yellow-500">
+            <div class="flex items-center">
+              <div class="ml-4">
+                <p class="text-gray-800 font-semibold">
+                  UIDAI Sandbox for Developer Community and Fintechs
+                </p>
+                <a class="text-blue-600" href="#"> Read More </a>
+              </div>
+            </div>
+          </div>
+          <!-- Update Aadhaar Section -->
+          <div
+            class="bg-white p-4 rounded shadow mb-4 border-t-4 border-blue-600"
+          >
+            <div class="flex items-center">
+              <div class="ml-4">
+                <h2 class="text-xl font-semibold text-gray-800">
+                  Update Aadhaar ›
+                </h2>
+                <p class="text-green-600 font-semibold">
+                  Keep your Aadhaar details up-to-date.
+                </p>
+                <p class="text-gray-600">
+                  It is essential that your Aadhaar Data is correct and remains
+                  updated always.
+                </p>
+                <div class="mt-2">
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    Check Aadhaar Update Status
+                  </a>
+                  |
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    Update Demographics Data &amp; Check Status
+                  </a>
+                  |
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    List of Supporting Documents for Aadhaar Enrolment &amp;
+                    Update
+                  </a>
+                  |
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    Enrolment &amp; Update Forms
+                  </a>
+                  |
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    Aadhaar Enrolment &amp; Update Charges
+                  </a>
+                  |
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    Aadhaar Update History
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Get Aadhaar Section -->
+          <div
+            class="bg-white p-4 rounded shadow mb-4 border-t-4 border-blue-600"
+          >
+            <div class="flex items-center">
+              <div class="ml-4">
+                <h2 class="text-xl font-semibold text-gray-800">
+                  Get Aadhaar ›
+                </h2>
+                <p class="text-green-600 font-semibold">
+                  Aadhaar is for every Resident of India.
+                </p>
+                <p class="text-gray-600">
+                  From a new born to a senior citizen, everyone can enrol for
+                  Aadhaar.
+                </p>
+                <div class="mt-2">
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    Book an Appointment
+                  </a>
+                  |
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    Check Aadhaar Status
+                  </a>
+                  |
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    Download Aadhaar
+                  </a>
+                  |
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    Order Aadhaar PVC Card
+                  </a>
+                  |
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    Check Aadhaar PVC Card Status
+                  </a>
+                  |
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    Aadhaar Enrolment &amp; Update Charges
+                  </a>
+                  |
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    List of Supporting Documents for Aadhaar Enrolment &amp;
+                    Update
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="max-w-4xl mx-auto">
+            <!-- Aadhaar Services Section -->
+            <div
+            class="bg-white p-4 rounded shadow mb-4 border-t-4 border-blue-600"
+          >
+            <div class="flex items-center">
+              <div class="ml-4">
+                <h2 class="text-xl font-semibold text-gray-800">
+                  Aadhaar Services ›
+                </h2>
+                <p class="text-green-600 font-semibold">
+                    An array of services for Aadhaar holders
+                </p>
+                <p class="text-gray-600">
+                    Aadhaar Registered Mobile number is essential to access the following services.
+                </p>
+                <div class="mt-2">
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    Verify an Aadhaar Number
+                  </a>
+                  |
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    Verify Email/Mobile Number
+                  </a>
+                  |
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    Virtual ID (VID) Generator
+                  </a>
+                  |
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    Aadhaar Paperless Offline e-kyc (Beta)
+                  </a>
+                  |
+                  <a class="text-blue-600" href="./MyAadhaar">
+                    Lock/Unlock Biometrics
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+            <!-- Media Coverage Section -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center">
+                  <h2 class="text-xl font-bold text-gray-800">
+                    Media Coverage of Aadhaar
+                  </h2>
+                </div>
+                <a href="#" class="text-blue-600 hover:underline">View All</a>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Card 1 -->
+                <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+                  <h3 class="text-lg font-medium text-gray-800 mb-2">
+                    Aadhaar Brochure 2024
+                  </h3>
+                  <p class="text-gray-600 mb-2">23 Aug 2024</p>
+                  <div class="flex items-center text-blue-600 space-x-2">
+                    <a href="#" class="hover:underline">Download</a>
+                    <span class="text-gray-600">| Type: pdf | Size: 1.7 MB</span
+                    >
+                  </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-gray-100 p-4 rounded-lg shadow-sm">
+                  <h3 class="text-lg font-medium text-gray-800 mb-2">
+                    Aadhaar Brochure September 2023
+                  </h3>
+                  <p class="text-gray-600 mb-2">1 Sep 2023</p>
+                  <div class="flex items-center text-blue-600 space-x-2">
+                    <a href="#" class="hover:underline">Download</a>
+                    <span class="text-gray-600">| Type: pdf | Size: 1.5 MB</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right Column -->
+        <div class="md:w-1/3">
+          <!-- FAQ Section -->
+          <div class="bg-white p-4 rounded shadow mb-4">
+            <h2 class="text-lg font-semibold text-gray-800">
+              Frequently Asked Questions
+            </h2>
+            <ul class="mt-2">
+              <li class="mb-2">
+                <a
+                  class="text-blue-600 flex justify-between items-center"
+                  href="#"
+                >
+                  Use Aadhaar Freely
+                </a>
+              </li>
+              <li class="mb-2">
+                <a
+                  class="text-blue-600 flex justify-between items-center"
+                  href="#"
+                >
+                  E-Aadhaar
+                </a>
+              </li>
+              <li class="mb-2">
+                <a
+                  class="text-blue-600 flex justify-between items-center"
+                  href="#"
+                >
+                  mAadhaar FAQs
+                </a>
+              </li>
+              <li class="mb-2">
+                <a
+                  class="text-blue-600 flex justify-between items-center"
+                  href="#"
+                >
+                  Aadhaar Paperless Offline e-kyc
+                </a>
+              </li>
+            </ul>
+            <a class="text-blue-600" href="#"> View All </a>
+          </div>
+          <!-- Twitter Posts Section -->
+          <div class="bg-white p-4 rounded shadow">
+            <h2 class="text-lg font-semibold text-gray-800">
+              Posts from @UIDAI
+            </h2>
+            <div class="mt-2">
+              <div class="flex items-start mb-4">
+                <div>
+                  <p class="text-gray-800">
+                    <strong> Aadhaar </strong>
+                    @UIDAI · 5h
+                  </p>
+                  <p class="text-gray-600">
+                    At the 27th National Conference on e-Governance held in
+                    Mumbai on the theme 'Viksit Bharat: Secure and Sustainable
+                    e-Service Delivery', CEO UIDAI spoke on Regulatory, Policy
+                    and Government view on Digital Personal Data Protection Act,
+                    2023.
+                  </p><br />
+                  <p class="text-gray-600">
+                    He said that the said Act is digital...
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <Footer/>
+    <script>
+      const selectElement = document.getElementById("language-select");
+
+      selectElement.addEventListener("change", (event) => {
+        const languageCode = event.target.value;
+        window.location.href = languageCode;
+      });
+    </script>
+  </main>
+</Layout>

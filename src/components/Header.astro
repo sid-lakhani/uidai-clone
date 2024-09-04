@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+---
+
+<div class="sticky top-0 z-50 bg-white shadow-md">
+    <div class="flex items-center justify-between mx-2 mt-2">
+      <Image
+        src="/uidai_logo.png"
+        alt="UIDAI Logo"
+        width="250"
+        height="150"
+        class="ml-60"
+      />
+      <Image
+        src="/aadhaar_logo.png"
+        alt="Aadhaar Logo"
+        width="80"
+        height="100"
+        class="mr-60"
+      />
+    </div>
+    <div class="bg-gradient-to-r from-blue-950 to-blue-400 h-10 flex justify-between items-center text-white mt-4">
+      <div class="flex flex-row ml-60">
+        <ul class="flex flex-row gap-4">
+          <li>
+            <a href="./MyAadhaar" class="text-white hover:text-white hover:no-underline">My Aadhaar</a>
+          </li>
+          <li>
+            <a href="./AboutUIDAI" class="text-white hover:text-white hover:no-underline">About UIDAI</a>
+          </li>
+          <li>
+            <a href="./Ecosystem" class="text-white hover:text-white hover:no-underline">Ecosystem</a>
+          </li>
+          <li>
+            <a href="./MediaAndResources" class="text-white hover:text-white hover:no-underline">Media & Resources</a>
+          </li>
+          <li>
+            <a href="./ContactSupport" class="text-white hover:text-white hover:no-underline">Contact Support</a>
+          </li>
+        </ul>
+      </div>
+      <div class="mr-60">
+        <input type="search" class="bg-white h-8 px-4 rounded-md" placeholder="Search">
+      </div>
+    </div>
+  </div>
