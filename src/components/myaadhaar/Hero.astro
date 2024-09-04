@@ -1,0 +1,82 @@
+---
+import { Image } from "astro:assets";
+---
+
+<div class="fixed z-50 w-full">
+  <div class="flex items-center justify-between py-2 px-40 bg-white w-full">
+    <Image src="/emblem.png" alt="emblem" width="40" height="100" />
+    <h1 class="text-block font-bold text-2xl">Unique Identification Authority Of India</h1>
+    <Image src="/aadhaar_logo.png" alt="logo" width="80" height="200" />
+  </div>
+  <div
+    class="bg-gradient-to-r from-blue-950 to-blue-400 h-10 flex justify-between items-center text-white px-40 p-4 border-b border-white"
+  >
+    <div class="flex items-center space-x-2">
+      <div class="flex flex-col gap-[2px]">
+        <div class="flex flex-row gap-[2px]">
+          <div class="bg-white p-1"></div>
+          <div class="bg-white p-1"></div>
+        </div>
+        <div class="flex flex-row gap-[2px]">
+          <div class="bg-white p-1"></div>
+          <div class="bg-white p-1"></div>
+        </div>
+      </div>
+      <span class="text-xl font-bold"> myAadhaar </span>
+    </div>
+    <div class="text-sm bg-inherit">
+      <select class="bg-inherit text-black">
+        <option>English</option>
+        <option>Hindi</option>
+        <option>Gujrati</option>
+        <option>Marathi</option>
+      </select>
+    </div>
+  </div>
+</div>
+<main class="flex flex-col items-center justify-center min-h-screen">
+  <Image src="/myaadhaar.jpg" alt="MyAadhaar" width="1800" height="1000" />
+  <div
+    class="absolute top-0 left-0 w-full h-full flex flex-row justify-center items-center px-40"
+  >
+    <div class="text-white w-2/3">
+      <h1 class="text-7xl mb-4">Welcome to</h1>
+      <h2 class="text-7xl font-bold mb-4">myAadhaar</h2>
+      <p class="text-lg mb-8">
+        Click on Login button to explore online demographics update service,
+        Aadhaar PVC card ordering &amp; tracking, and more value-added services
+        offered by UIDAI. Your mobile number is required to be registered with
+        the Aadhaar to login.
+      </p>
+    </div>
+    <div class="bg-white text-black p-12 rounded-lg shadow-lg w-1/3 h-1/2">
+      <Image
+        src="/fingerprint.jpg"
+        alt="Fingerprint icon"
+        class="mx-auto mb-4"
+        height="150"
+        width="120"
+      />
+      <button
+        class="w-full bg-blue-800 text-white px-6 py-2 rounded-full font-bold mt-8"
+      >
+        Login
+      </button>
+      <p class="text-center text-sm mt-2">Login with Aadhaar and OTP</p>
+    </div>
+  </div>
+  <div class="flex justify-center space-x-4 p-4 bg-blue-800 text-sm w-full">
+    <span> English </span>
+    <span> हिंदी </span>
+    <span> বাংলা </span>
+    <span> ಕನ್ನಡ </span>
+    <span> ગુજરાતી </span>
+    <span> മലയാളം </span>
+    <span> मराठी </span>
+    <span> ଓଡ଼ିଆ </span>
+    <span> ਪੰਜਾਬੀ </span>
+    <span> தமிழ் </span>
+    <span> తెలుగు </span>
+    <span> اردو </span>
+  </div>
+</main>
