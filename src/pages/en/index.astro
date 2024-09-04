@@ -3,6 +3,7 @@ import Header from "../../components/Header.astro";
 import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import Footer from "../../components/Footer.astro";
+import Dashboard from "../../components/Dashboard.astro";
 ---
 
 <Layout title="Home">
@@ -21,7 +22,10 @@ import Footer from "../../components/Footer.astro";
         </select>
       </div>
     </div>
-    <Header />
+    <div class="sticky top-0 z-50 bg-white shadow-md">
+      <Header />
+      <Dashboard/>
+    </div>
     <Image src="/hero.jpg" alt="UIDAI Logo" width="1700" height="500" />
     <div id="main-content" class="container p-4 px-40 ml-10">
       <div class="flex flex-row ">

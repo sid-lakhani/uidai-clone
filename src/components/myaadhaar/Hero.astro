@@ -5,7 +5,9 @@ import { Image } from "astro:assets";
 <div class="fixed z-50 w-full">
   <div class="flex items-center justify-between py-2 px-40 bg-white w-full">
     <Image src="/emblem.png" alt="emblem" width="40" height="100" />
-    <h1 class="text-block font-bold text-2xl">Unique Identification Authority Of India</h1>
+    <h1 class="text-block font-bold text-2xl">
+      Unique Identification Authority Of India
+    </h1>
     <Image src="/aadhaar_logo.png" alt="logo" width="80" height="200" />
   </div>
   <div
@@ -57,11 +59,13 @@ import { Image } from "astro:assets";
         height="150"
         width="120"
       />
-      <button
-        class="w-full bg-blue-800 text-white px-6 py-2 rounded-full font-bold mt-8"
-      >
-        Login
-      </button>
+      <a href="./myaadhaar/login">
+        <button
+          class="w-full bg-blue-800 text-white px-6 py-2 rounded-full font-bold mt-8"
+        >
+          Login
+        </button>
+      </a>
       <p class="text-center text-sm mt-2">Login with Aadhaar and OTP</p>
     </div>
   </div>
