@@ -1,0 +1,83 @@
+---
+import Header from "../../components/Header.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Login">
+  <div class="border-b border-black p-2">
+    <Header />
+  </div>
+  <div class="flex flex-col justify-center items-center mx-80 mt-4">
+    <p class="text-blue-950 font-semibold">Login to Aadhaar via OTP</p>
+    <div class="h-full w-96 rounded-xl shadow-lg overflow-hidden mt-4">
+      <div class="h-1 bg-gradient-to-r from-blue-950 to-blue-400"></div>
+      <form id="loginForm" class="p-4">
+        <input
+          type="text"
+          class="p-4 w-full text-lg mb-4"
+          id="aadhaarNumber"
+          placeholder="Enter Aadhaar Number"
+        />
+        <button
+          type="submit"
+          class="bg-gradient-to-r from-blue-950 to-blue-400 text-white p-2 w-full rounded-xl"
+          >Login with OTP</button
+        >
+      </form>
+    </div>
+  </div>
+  <div
+    class="fixed bottom-0 left-0 right-0 p-4 bg-blue-950 text-white text-center"
+  >
+    Copyright © 2024 Unique Identification Authority of India All Rights
+    Reserved
+  </div>
+</Layout>
+
+<script>
+  import { load } from "@fingerprintjs/botd";
+
+  let isBot = false;
+
+  // Initialize an agent at application startup, once per page/app.
+  const botdPromise = load();
+  // Get detection results when you need them.
+  botdPromise
+    .then((botd) => botd.detect())
+    .then((result) => {
+      if (result.bot) {
+        isBot = true;
+        console.log("Bot detected");
+      }
+    })
+    .catch((error) => console.error(error));
+
+  const loginForm = document.getElementById("loginForm");
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const aadhaarNumber = document.getElementById("aadhaarNumber").value;
+
+    if (isBot) {
+      window.location.href =
+        "/captcha?callbackUrl=/myaadhaar/login?aadhaarNumber=" + aadhaarNumber;
+      return;
+    }
+
+    try {
+      const response = fetch("http://localhost:8080/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ aadhaarNumber }),
+      });
+      if (response.ok) {
+        window.location.href = "/myaadhaar/dashboard";
+      }
+    } catch (error) {
+      console.log(error);
+      alert("Something went wrong!");
+    }
+  });
+</script>

@@ -24,15 +24,17 @@ import Dashboard from "../../components/Dashboard.astro";
     </div>
     <div class="sticky top-0 z-50 bg-white shadow-md">
       <Header />
-      <Dashboard/>
+      <Dashboard />
     </div>
     <Image src="/hero.jpg" alt="UIDAI Logo" width="1700" height="500" />
     <div id="main-content" class="container p-4 px-40 ml-10">
-      <div class="flex flex-row ">
+      <div class="flex flex-row">
         <!-- Left Column -->
         <div class="md:w-2/3 md:pr-4">
           <!-- Top Message -->
-          <div class="bg-white p-4 rounded shadow mb-4 border-t-4 border-yellow-500">
+          <div
+            class="bg-white p-4 rounded shadow mb-4 border-t-4 border-yellow-500"
+          >
             <div class="flex items-center">
               <div class="ml-4">
                 <p class="text-gray-800 font-semibold">
@@ -59,28 +61,28 @@ import Dashboard from "../../components/Dashboard.astro";
                   updated always.
                 </p>
                 <div class="mt-2">
-                  <a class="text-blue-600" href="./myaadhaar">
+                  <a class="text-blue-600" href="/myaadhaar">
                     Check Aadhaar Update Status
                   </a>
                   |
-                  <a class="text-blue-600" href="./myaadhaar">
+                  <a class="text-blue-600" href="/myaadhaar">
                     Update Demographics Data &amp; Check Status
                   </a>
                   |
-                  <a class="text-blue-600" href="./myaadhaar">
+                  <a class="text-blue-600" href="/myaadhaar">
                     List of Supporting Documents for Aadhaar Enrolment &amp;
                     Update
                   </a>
                   |
-                  <a class="text-blue-600" href="./myaadhaar">
+                  <a class="text-blue-600" href="/myaadhaar">
                     Enrolment &amp; Update Forms
                   </a>
                   |
-                  <a class="text-blue-600" href="./myaadhaar">
+                  <a class="text-blue-600" href="/myaadhaar">
                     Aadhaar Enrolment &amp; Update Charges
                   </a>
                   |
-                  <a class="text-blue-600" href="./myaadhaar">
+                  <a class="text-blue-600" href="/myaadhaar">
                     Aadhaar Update History
                   </a>
                 </div>
@@ -104,31 +106,31 @@ import Dashboard from "../../components/Dashboard.astro";
                   Aadhaar.
                 </p>
                 <div class="mt-2">
-                  <a class="text-blue-600" href="./myaadhaar">
+                  <a class="text-blue-600" href="/myaadhaar">
                     Book an Appointment
                   </a>
                   |
-                  <a class="text-blue-600" href="./myaadhaar">
+                  <a class="text-blue-600" href="/myaadhaar">
                     Check Aadhaar Status
                   </a>
                   |
-                  <a class="text-blue-600" href="./myaadhaar">
+                  <a class="text-blue-600" href="/myaadhaar">
                     Download Aadhaar
                   </a>
                   |
-                  <a class="text-blue-600" href="./myaadhaar">
+                  <a class="text-blue-600" href="/myaadhaar">
                     Order Aadhaar PVC Card
                   </a>
                   |
-                  <a class="text-blue-600" href="./myaadhaar">
+                  <a class="text-blue-600" href="/myaadhaar">
                     Check Aadhaar PVC Card Status
                   </a>
                   |
-                  <a class="text-blue-600" href="./myaadhaar">
+                  <a class="text-blue-600" href="/myaadhaar">
                     Aadhaar Enrolment &amp; Update Charges
                   </a>
                   |
-                  <a class="text-blue-600" href="./myaadhaar">
+                  <a class="text-blue-600" href="/myaadhaar">
                     List of Supporting Documents for Aadhaar Enrolment &amp;
                     Update
                   </a>
@@ -139,43 +141,44 @@ import Dashboard from "../../components/Dashboard.astro";
           <div class="max-w-4xl mx-auto">
             <!-- Aadhaar Services Section -->
             <div
-            class="bg-white p-4 rounded shadow mb-4 border-t-4 border-blue-600"
-          >
-            <div class="flex items-center">
-              <div class="ml-4">
-                <h2 class="text-xl font-semibold text-gray-800">
-                  Aadhaar Services ›
-                </h2>
-                <p class="text-green-600 font-semibold">
+              class="bg-white p-4 rounded shadow mb-4 border-t-4 border-blue-600"
+            >
+              <div class="flex items-center">
+                <div class="ml-4">
+                  <h2 class="text-xl font-semibold text-gray-800">
+                    Aadhaar Services ›
+                  </h2>
+                  <p class="text-green-600 font-semibold">
                     An array of services for Aadhaar holders
-                </p>
-                <p class="text-gray-600">
-                    Aadhaar Registered Mobile number is essential to access the following services.
-                </p>
-                <div class="mt-2">
-                  <a class="text-blue-600" href="./myaadhaar">
-                    Verify an Aadhaar Number
-                  </a>
-                  |
-                  <a class="text-blue-600" href="./myaadhaar">
-                    Verify Email/Mobile Number
-                  </a>
-                  |
-                  <a class="text-blue-600" href="./myaadhaar">
-                    Virtual ID (VID) Generator
-                  </a>
-                  |
-                  <a class="text-blue-600" href="./myaadhaar">
-                    Aadhaar Paperless Offline e-kyc (Beta)
-                  </a>
-                  |
-                  <a class="text-blue-600" href="./myaadhaar">
-                    Lock/Unlock Biometrics
-                  </a>
+                  </p>
+                  <p class="text-gray-600">
+                    Aadhaar Registered Mobile number is essential to access the
+                    following services.
+                  </p>
+                  <div class="mt-2">
+                    <a class="text-blue-600" href="/myaadhaar">
+                      Verify an Aadhaar Number
+                    </a>
+                    |
+                    <a class="text-blue-600" href="/myaadhaar">
+                      Verify Email/Mobile Number
+                    </a>
+                    |
+                    <a class="text-blue-600" href="/myaadhaar">
+                      Virtual ID (VID) Generator
+                    </a>
+                    |
+                    <a class="text-blue-600" href="/myaadhaar">
+                      Aadhaar Paperless Offline e-kyc (Beta)
+                    </a>
+                    |
+                    <a class="text-blue-600" href="/myaadhaar">
+                      Lock/Unlock Biometrics
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
             <!-- Media Coverage Section -->
             <div class="bg-white p-6 rounded-lg shadow-md">
               <div class="flex items-center justify-between mb-4">
@@ -287,7 +290,7 @@ import Dashboard from "../../components/Dashboard.astro";
         </div>
       </div>
     </div>
-    <Footer/>
+    <Footer />
     <script>
       const selectElement = document.getElementById("language-select");
 
