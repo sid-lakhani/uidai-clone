@@ -18,5 +18,126 @@ const { title } = Astro.props;
   </head>
   <body class="bg-white">
     <slot />
+    <p id="uniqueVisitors">0</p>
+    <script>
+      let uniqueVisitorsElement = document.getElementById("uniqueVisitors");
+      let uniqueVisitors = parseInt(uniqueVisitorsElement.textContent) || 0;
+
+      let pageViews = 0;
+      let sessionDuration = 0;
+      let timeOnPage = 0;
+      let previousVisits2 = [];
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Check if unique visitor ID exists in cookies
+        let uniqueVisitorId = getCookie("uniqueVisitorId");
+
+        if (!uniqueVisitorId) {
+          // If unique visitor ID does not exist, generate a new one
+          uniqueVisitorId = generateUniqueId();
+
+          // Set the unique visitor ID in cookies with expiry date
+          setCookie("uniqueVisitorId", uniqueVisitorId, 365); // Cookie expires in 365 days
+        }
+
+        // Check if the unique visitor ID is counted already
+        let isCounted = localStorage.getItem(uniqueVisitorId);
+
+        if (!isCounted) {
+          // If the unique visitor ID is not counted, increment the counter
+          uniqueVisitors++;
+          uniqueVisitorsElement.textContent = uniqueVisitors;
+
+          // Mark this unique visitor as counted
+          localStorage.setItem(uniqueVisitorId, "true");
+        }
+
+        // Get page views
+        pageViews = parseInt(getCookie("pageViews")) || 0;
+        pageViews++;
+        setCookie("pageViews", pageViews, 365);
+
+        // Get session duration
+        let startTime = new Date().getTime();
+        let endTime = startTime + 30000; // 30 seconds
+        setTimeout(function () {
+          sessionDuration = (new Date().getTime() - startTime) / 1000;
+          console.log(`Session duration: ${sessionDuration} seconds`);
+        }, endTime - startTime);
+
+        // Get time on page
+        // let timeOnPageInterval = setInterval(function () {
+        //   timeOnPage++;
+        //   console.log(`Time on page: ${timeOnPage} seconds`);
+        // }, 1000);
+
+        // Calculate time on site before routing
+        window.addEventListener("beforeunload", function () {
+          clearInterval(timeOnPageInterval);
+          console.log(`Time on site: ${timeOnPage} seconds`);
+        });
+
+        function deleteCookie(name) {
+          document.cookie =
+            name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+        }
+        // deleteCookie("previousVisits2");
+
+        // Get previous visits
+        let previousVisitsCookie = getCookie("previousVisits2");
+        let previousVisits2 = previousVisitsCookie
+          ? JSON.parse(previousVisitsCookie)
+          : [];
+
+        let currentUrl = window.location.href;
+        let visitCount = previousVisits2.length + 1;
+
+        // Limit the number of visits to 10
+        if (previousVisits2.length >= 10) {
+          previousVisits2.shift(); // Remove the oldest visit
+        }
+
+        if (!previousVisits2.find((visit) => visit.url === currentUrl)) {
+          previousVisits2.push({ srNo: visitCount, url: currentUrl });
+          setCookie("previousVisits2", JSON.stringify(previousVisits2), 365);
+        }
+
+        console.log(`Page visited by ${uniqueVisitors} unique visitors.`);
+        console.log(`Page views: ${pageViews}`);
+        console.log(`Previous visits: ${JSON.stringify(previousVisits2)}`);
+      });
+
+      // Function to generate a unique ID
+      function generateUniqueId() {
+        return "visitor_" + Math.random().toString(36).substr(2, 9);
+      }
+
+      // Function to set a cookie
+      function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+          let date = new Date();
+          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+      }
+
+      // Function to get a cookie
+      function getCookie(name) {
+        let nameEQ = name + "=";
+        let cookies = document.cookie.split(";");
+        for (let i = 0; i < cookies.length; i++) {
+          let cookie = cookies[i];
+          while (cookie.charAt(0) == " ") {
+            cookie = cookie.substring(1, cookie.length);
+          }
+          if (cookie.indexOf(nameEQ) == 0) {
+            return cookie.substring(nameEQ.length, cookie.length);
+          }
+        }
+        return null;
+      }
+    </script>
   </body>
 </html>
