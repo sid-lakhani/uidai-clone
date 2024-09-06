@@ -39,6 +39,22 @@ import Layout from "../../layouts/Layout.astro";
 
   let isBot = false;
 
+  // Bot Data
+  // const behaviourData = {
+  //   page_views: 37,
+  //   session_duration: 32,
+  //   time_on_page: 2.56,
+  //   previous_visits: 1,
+  // };
+
+  // Human Data
+  const behaviourData = {
+    page_views: 4,
+    session_duration: 144,
+    time_on_page: 4,
+    previous_visits: 2,
+  };
+
   // Initialize an agent at application startup, once per page/app.
   const botdPromise = load();
   // Get detection results when you need them.
@@ -53,37 +69,44 @@ import Layout from "../../layouts/Layout.astro";
     .catch((error) => console.error(error));
 
   const loginForm = document.getElementById("loginForm");
-  loginForm.addEventListener("submit", (e) => {
+  loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const aadhaarNumber = document.getElementById("aadhaarNumber").value;
 
     if (isBot) {
       window.location.href =
-        "/captcha?callbackUrl=/myaadhaar/login?aadhaarNumber=" + aadhaarNumber;
-      return;
-    } else if (!aadhaarNumber) {
-      alert("Enter Aadhaar Number");
-      return;
-    } else {
-      window.location.href = "/success?aadhaarNumber=" + aadhaarNumber;
+        "/captcha?callbackUrl=/success?aadhaarNumber=" + aadhaarNumber;
       return;
     }
 
     try {
-      const response = fetch("http://localhost:8080/", {
+      // Send POST request to the server with Aadhaar number and behavior data
+      const response = await fetch("/api/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ aadhaarNumber }),
+        body: JSON.stringify({ aadhaarNumber, behaviourData }),
       });
+
+      // Handle successful response
       if (response.ok) {
-        window.location.href = "/myaadhaar/dashboard";
+        const data = await response.json();
+        const url = data.url;
+        window.location.href = url;
+      } else {
+        // Handle error responses
+        const errorData = await response.json();
+        console.error("Error:", errorData.message || response.statusText);
+        alert("Error: " + (errorData.message || response.statusText));
       }
     } catch (error) {
-      console.log(error);
-      alert("Something went wrong!");
+      // Catch and display any network or unexpected errors
+      console.error("Error:", error);
+      alert(
+        "An error occurred while processing the request. Please try again later.",
+      );
     }
   });
 </script>
