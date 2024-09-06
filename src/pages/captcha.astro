@@ -1,9 +1,28 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/Layout.astro";
 ---
 
 <BaseLayout title="Captcha">
-  <div class="flex flex-col min-h-screen justify-center items-center h-screen">
-    <h1 class="text-4xl font-bold">Captcha</h1>
+  <div class="flex flex-col min-h-screen justify-center items-center h-screen bg-gray-100">
+    <div class="bg-white p-8 rounded-lg shadow-md">
+      <Image src="/captcha.jpg" alt="captcha" width="320" height="400" class="mb-4" />
+      <input type="text" id="captcha-input" placeholder="Enter Captcha" class="w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:border-blue-500" />
+      <button id="verify-button" class="w-full p-2 bg-blue-500 hover:bg-blue-700 text-white rounded-lg">Verify Captcha</button>
+    </div>
   </div>
 </BaseLayout>
+
+<script>
+  const verifyButton = document.getElementById("verify-button");
+  verifyButton.addEventListener("click", validateCaptcha);
+
+  function validateCaptcha() {
+    const inputValue = document.getElementById("captcha-input").value;
+    if (inputValue === "459CT") {
+      location.href = '/success';
+    } else {
+      alert("Invalid captcha. Please try again.");
+    }
+  }
+</script>
